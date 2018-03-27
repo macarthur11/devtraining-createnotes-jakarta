@@ -23,8 +23,8 @@
 				noteBody: c.data.note,
 				noteTitle: c.data.title
 			}).then(function(r){
-				var id = c.data.noteID;
-				$rootScope.$emit('updateNote', id);
+				
+				$rootScope.$emit('updateNote', r.data);
 			})
 		}
 		
@@ -62,6 +62,8 @@
 				note.note = input.noteBody;
 				note.update();
 				
+				data.title= note.getValue('title');
+				data.note= note.getValue('note').slice(0,20);
 			}
 		}
 		
@@ -74,7 +76,7 @@
         <sys_created_on>2018-03-26 17:13:23</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d74b581e0f0dd78064868d8ce1050eca</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>Notes Body</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
@@ -82,7 +84,7 @@
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_d74b581e0f0dd78064868d8ce1050eca</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-03-27 15:27:42</sys_updated_on>
+        <sys_updated_on>2018-03-27 16:25:28</sys_updated_on>
         <template><![CDATA[
       
 <div class="panel panel-default" ng-show="c.data.noteID">
